@@ -37,7 +37,13 @@ end
 
 
 def new_coupon(coupon_hash, cart_hash)
-  coupon = {:item => "#{cart_hash[:item]} W/COUPON", :price => (coupon_hash[:cost] / coupon_hash[:num]), :clearance => cart_hash[:clearance], :count => (cart_hash[:count] - (cart_hash[:count] % coupon_hash[:num]))}
+  coupon = {
+    :item => "#{cart_hash[:item]} W/COUPON", 
+    :price => (coupon_hash[:cost] / coupon_hash[:num]), 
+    :clearance => cart_hash[:clearance], 
+    :count => (cart_hash[:count] - (cart_hash[:count] % coupon_hash[:num]))
+    
+  }
 end
 
 def apply_coupons(cart, coupons)
